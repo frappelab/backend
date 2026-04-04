@@ -41,6 +41,16 @@ export class ProjectsService {
     return await this.repository.findByUser(userId);
   }
 
+    async findByIdAll(projectId: string) {
+    const project = await this.repository.findByIdWithUsers(projectId);
+
+    if (!project) {
+      throw new Error("El proyecto no existe");
+    }
+
+    return project;
+  }
+
   async delete(projectId: string): Promise<void> {
     const project = await this.repository.findById(projectId);
 

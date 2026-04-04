@@ -9,6 +9,7 @@ const projectsController = new ProjectsController();
 
 router.post("/", authMiddleware, validate(createProjectSchema), projectsController.create);
 router.get("/", authMiddleware, projectsController.findAll);
+router.get("/all/:id", authMiddleware, projectsController.findByIdAll);
 router.get("/me", authMiddleware, projectsController.findByUser);
 router.get("/:id", authMiddleware, projectsController.findById);
 router.delete("/:id", authMiddleware, projectsController.delete);

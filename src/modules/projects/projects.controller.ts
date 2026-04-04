@@ -63,6 +63,28 @@ export class ProjectsController {
         }
     };
 
+    findByIdAll = async (
+        req: Request<{ id: string }>,
+        res: Response,
+        next: NextFunction
+    ) => {
+        try {
+            const { id } = req.params;
+
+            const project = await this.projectsService.findByIdAll(id);
+
+            if (!project) {
+                return res.status(404).json({
+                    message: "El proyecto no existe",
+                });
+            }
+
+            return res.status(200).json(project);
+        } catch (error) {
+            next(error);
+        }
+    };
+
     delete = async (req: Request, res: Response, next: NextFunction) => {
         try {
             const id = req.params.id as string;

@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import compression from 'compression';
 import helmet from 'helmet';
+import morgan from 'morgan';
 import v1Routes from "./api/v1/index";
 import { errorMiddleware } from "./middlewares/error.middleware";
 
@@ -9,6 +10,7 @@ import { errorMiddleware } from "./middlewares/error.middleware";
 export const app = express();
 
 app.use(helmet());
+app.use(morgan('dev'));
 app.use(cors());
 app.use(compression());
 app.use(express.json());
