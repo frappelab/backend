@@ -10,8 +10,12 @@ export interface JwtPayload {
 
 
 export const signToken = (payload: JwtPayload): string => {
+    //       const options: SignOptions = {
+    //     expiresIn: env.jwtExpiration as SignOptions["expiresIn"],
+    //   };
+    //  return jwt.sign({ id, role }, env.jwtSecret, options);
     return jwt.sign(payload, env.jwtSecret as string, {
-        expiresIn: '1d',
+        expiresIn: '1h', // 1m 15m h d
     });
 };
 

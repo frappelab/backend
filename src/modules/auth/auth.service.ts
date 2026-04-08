@@ -24,7 +24,7 @@ export class AuthService {
         const token = signToken({
             sub: result._id!.toString(),
             email: result.email,
-            role: result.role
+            role: result.role ?? "user"
         });
 
         return {
@@ -53,7 +53,7 @@ export class AuthService {
          const token = signToken({
             sub: user._id!.toString(),
             email: user.email,
-            role: user.role
+            role: user.role ?? "user"
         });
 
         return {
