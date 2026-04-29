@@ -14,6 +14,10 @@ export const openApiSpec = swaggerJsdoc({
         url: "http://localhost:3000/api/v1",
         description: "Servidor local",
       },
+      {
+        url: "https://collaborate-ook5.onrender.com/api/v1",
+        description: "Servidor Producción",
+      },
     ],
     components: {
       securitySchemes: {
